@@ -14,6 +14,12 @@ namespace Database.MsSQL
 
         private MsSQL() => _disposed = false;
 
+        public MsSQL(string connectionString)
+        {
+            _disposed = false;
+            _connectionString = connectionString;
+        }
+
         public string DatabaseName => _connection?.Database;
 
         public string DataSource => _connection?.DataSource;
