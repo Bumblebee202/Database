@@ -1,13 +1,12 @@
-﻿using Database;
-using System.Data.Common;
+﻿using System.Data.Common;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
-namespace MsSQL
+namespace Database.MsSQL
 {
-    public class MsSqlTransaction : ITransaction
+    public class MsSQLTransaction : ITransaction
     {
-        public MsSqlTransaction(SqlConnection connection) => Start(connection);
+        public MsSQLTransaction(SqlConnection connection) => Start(connection);
 
         public DbTransaction Transaction { get; private set; }
 
