@@ -1,9 +1,8 @@
-﻿using Database;
-using System;
+﻿using System;
 using System.Data.Common;
 using System.Threading.Tasks;
 
-namespace MsSQL
+namespace Database.MsSQL
 {
     public class MsSQLReader : IDatabaseReader, IDisposable
     {

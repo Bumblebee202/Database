@@ -1,12 +1,10 @@
-﻿using Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
-namespace MsSQL
+namespace Database.MsSQL
 {
     class MsSQL : IDatabase, IDisposable
     {
@@ -40,11 +38,7 @@ namespace MsSQL
 
         public void CloseConnection() => Dispose(true);
 
-        public ITransaction BeginTransaction()
-        {
-            ITransaction transaction = new MsSQLTransaction(_connection);
-            return transaction;
-        }
+        public ITransaction BeginTransaction() => new MsSQLTransaction(_connection);
 
         public Task EndTransaction(ITransaction transaction, bool rollback)
         {
