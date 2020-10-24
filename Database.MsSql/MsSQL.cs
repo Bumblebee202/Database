@@ -38,11 +38,7 @@ namespace Database.MsSQL
 
         public void CloseConnection() => Dispose(true);
 
-        public ITransaction BeginTransaction()
-        {
-            ITransaction transaction = new MsSQLTransaction(_connection);
-            return transaction;
-        }
+        public ITransaction BeginTransaction() => new MsSQLTransaction(_connection);
 
         public Task EndTransaction(ITransaction transaction, bool rollback)
         {
